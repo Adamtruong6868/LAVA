@@ -150,3 +150,45 @@ sudo journalctl -u cosmovisor -f
 # Check if the node is currently in the process of catching up
 $HOME/.lava/cosmovisor/current/bin/lavad status | jq .SyncInfo.catching_up
 ```
+***Ensure your node synched & Wait until you see the output: "false"***
+### 9. Create wallet
+```php
+current_lavad_binary="$HOME/.lava/cosmovisor/current/bin/lavad"
+ACCOUNT_NAME=$MONIKER
+$current_lavad_binary keys add $ACCOUNT_NAME
+```
+***Ensure you write down the mnemonic as you can not recover the wallet without it***
+### List the key & Wallet
+```php
+$current_lavad_binary keys list
+```
+### obtain your validator pubkey
+```php
+$current_lavad_binary tendermint show-validator
+```
+### Check balance of your account
+```php
+YOUR_ADDRESS=$($current_lavad_binary keys show -a $ACCOUNT_NAME)
+$current_lavad_binary query \
+    bank balances \
+    $YOUR_ADDRESS \
+    --denom ulava
+```
+### 10. Stake as validator
+```php
+$current_lavad_binary tx staking create-validator \
+    --amount="10000ulava" \
+    --pubkey=$($current_lavad_binary tendermint show-validator --home "$HOME/.lava/") \
+    --moniker="Your-name_VNBnode" \
+    --chain-id=lava-testnet-2 \
+    --commission-rate="0.10" \
+    --commission-max-rate="0.20" \
+    --commission-max-change-rate="0.01" \
+    --min-self-delegation="10000" \
+    --gas="auto" \
+    --gas-adjustment "1.5" \
+    --gas-prices="0.05ulava" \
+    --home="$HOME/.lava/" \
+    --from=$ACCOUNT_NAME
+```
+## THANK TO SUPPORT VNBnode 
