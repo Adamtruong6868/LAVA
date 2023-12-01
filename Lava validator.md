@@ -191,7 +191,7 @@ $current_lavad_binary tx staking create-validator \
     --home="$HOME/.lava/" \
     --from=$ACCOUNT_NAME
 ```
-#### Useful commands for manage your node
+### Useful commands for manage your node
 ```php
 #Account info
 lavap query pairing account-info $(lavad keys show wallet -a)
