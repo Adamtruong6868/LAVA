@@ -126,7 +126,7 @@ lavap test rpcprovider --from $MONIKER  --endpoints "lava.your-domain.com:443,LA
 #### Step 14: Check the status of RPC provider
 [https://info.lavanet.xyz/provider/](https://info.lavanet.xyz/provider/)
 ***Enter your wallet address & Enjoy***
-#### Useful commands for manage your node
+### Useful commands for manage your node
 ```php
 #Account info
 lavap query pairing account-info $(lavad keys show wallet -a)
