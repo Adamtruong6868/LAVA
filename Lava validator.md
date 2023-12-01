@@ -222,3 +222,7 @@ lavad tx distribution withdraw-rewards $(lavad keys show wallet --bech val -a) -
 lavap tx pairing unfreeze LAV1,ETH1 --from your-wallet-name --gas-prices 0.1ulava --gas-adjustment 1.5 --gas auto -y
 ```
 ## THANK TO SUPPORT VNBnode 
+## Visit us at: 
+Telegroup: [VNBnodegroup](https://t.me/VNBnodegroup)
+Telechannel:[Vnbnode News](https://t.me/Vnbnode)
+Web:[https://VNBnode.com](https://VNBnode.com)
