@@ -156,6 +156,35 @@ lavad tx distribution withdraw-rewards $(lavad keys show wallet --bech val -a) -
 # Unfreeze
 lavap tx pairing unfreeze LAV1,ETH1 --from your-wallet-name --gas-prices 0.1ulava --gas-adjustment 1.5 --gas auto -y
 ```
+### Upgradable Lava binaries
+```php
+cd $HOME
+rm -rf lava
+git clone https://github.com/lavanet/lava.git
+cd lava
+```
+```php
+# choose the correct version
+git checkout v0.30.x
+```
+```php
+export LAVA_BINARY=lavad
+make build
+```
+```php
+# choose the correct version
+mkdir -p $HOME/.lava/cosmovisor/upgrades/v0.30.x/bin
+mv build/lavad $HOME/.lava/cosmovisor/upgrades/v0.30.x/bin/
+rm -rf build
+```
+```php
+# check version
+lavad version && lavap version
+```
+```php
+sudo systemctl restart cosmovisor
+sudo systemctl status cosmovisor
+```
 ## Thank to support VNBnode.
 ## Visit us at: 
 Telegroup: [VNBnodegroup](https://t.me/VNBnodegroup)
