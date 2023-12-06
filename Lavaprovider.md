@@ -66,7 +66,7 @@ sudo systemctl restart nginx
 ```
 #### Step 9: Create Docker file
 ```php
-cd ~/config
+cd $HOME/config
 nano lava-provider.yml
 ```
 ***Copy & Paste***
